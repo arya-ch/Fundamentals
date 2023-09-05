@@ -1,24 +1,28 @@
 package com.example;
 import java.util.Scanner;
+public class Prime {
 
-public class Twodarray {
     public static void main(String[] args) {
 
-        int [][] arr = new int[3][3];
         Scanner in = new Scanner(System.in);
+        int n = in.nextInt();
 
-        for (int row=0;row<arr.length;row++){
-            for(int col = 0;col<arr[row].length;col++ ){
-                arr[row][col]= in.nextInt();
-            }
-        }
+        boolean ans = isprime(n);
+        System.out.println(ans);
 
-
-        for (int row=0;row<arr.length;row++){
-            for(int col = 0;col<arr[row].length;col++ ){
-                System.out.print(arr[row][col]+" ");
-            }
-            System.out.println();
-        }
     }
-}
+
+    static boolean isprime(int n){
+
+        if(n<=1){
+            return false;
+        }
+
+        int c = 2;
+
+        while (c *c <= n) {
+            if(n % c == 0){
+                return false;
+            }
+            c++;
+        }
